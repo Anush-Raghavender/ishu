@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#AI</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      body {
+        background: linear-gradient(to right, #ff758c, #ff7eb3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        text-align: center;
+        padding: 20px;
+        animation: fadeIn 2s ease-in;
+        position: relative;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .names {
+        font-family: "Parisienne", cursive;
+        color: #fff;
+        font-size: 3.2rem;
+        margin-bottom: 5px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .heart-bg {
+        position: absolute;
+        top: 50px;
+        width: 100px;
+        height: 90px;
+        background: radial-gradient(circle, #ffdee9, #ffcad4);
+        border-radius: 50%;
+        animation: pulse 2s infinite;
+        z-index: 0;
+        opacity: 0.3;
+        filter: blur(20px);
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 0.3;
+        }
+        50% {
+          transform: scale(1.4);
+          opacity: 0.5;
+        }
+      }
+
+      h1 {
+        font-family: "Parisienne", cursive;
+        font-weight: 400;
+        color: #fff;
+        font-size: 2rem;
+        margin: 10px 0 50px;
+        letter-spacing: 1px;
+        z-index: 1;
+      }
+
+      p {
+        font-family: serif;
+        color: #fff;
+        font-size: 1.25rem;
+        margin-bottom: 20px;
+        z-index: 1;
+      }
+
+      #daysCount {
+        font-weight: bold;
+        font-size: 1.5rem;
+        border-bottom: 3px double #fff;
+        padding-bottom: 4px;
+      }
+
+      span {
+        font-family: serif;
+        margin-bottom: 40px;
+        color: #fff;
+        font-weight: bold;
+        z-index: 1;
+        font-size: 1.2rem;
+      }
+
+      #surpriseBtn {
+        font-family: serif;
+        padding: 12px 25px;
+        background: linear-gradient(to right, #fff, #ffe0e6);
+        color: #ff5e78;
+        border: none;
+        border-radius: 30px;
+        font-size: 1rem;
+        cursor: pointer;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        transition: all 0.3s ease;
+        z-index: 1;
+      }
+
+      #surpriseBtn:hover {
+        background-color: #fff0f5;
+        transform: scale(1.05);
+      }
+
+      .popup {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.75);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+      }
+
+      .popup-content {
+        position: relative;
+        background: #fff;
+        border-radius: 15px;
+        padding: 10px;
+        max-width: 90%;
+        max-height: 90%;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 0.4s ease-out;
+      }
+
+      .popup-content img {
+        max-width: 100%;
+        border-radius: 12px;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: #ff6f91;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="heart-bg"></div>
+
+    <div class="names">Anush 💕 Ishu</div>
+    <h1>Forever & Always</h1>
+    <p>We've been together for <span id="daysCount">0</span> beautiful days</p>
+    <span>HeHeHe</span>
+    <button id="surpriseBtn">Open for a Surprise 🎁</button>
+
+    <div class="popup" id="popup">
+      <div class="popup-content">
+        <button class="close-btn" onclick="closePopup()">×</button>
+        <img src="./pic.png" alt="Surprise Image" width="450" />
+      </div>
+    </div>
+
+    <script>
+      const startDate = new Date("2025-03-21");
+      const today = new Date();
+      const diffTime = today - startDate;
+      const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+      document.getElementById("daysCount").textContent = diffDays;
+
+      const popup = document.getElementById("popup");
+      document.getElementById("surpriseBtn").onclick = () => {
+        popup.style.display = "flex";
+      };
+
+      function closePopup() {
+        popup.style.display = "none";
+      }
+    </script>
+  </body>
+</html>
