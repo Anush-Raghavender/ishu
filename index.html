@@ -183,6 +183,8 @@
   <body>
     <div class="heart-bg"></div>
 
+    <audio id="bg-music" src="music.mp3" loop></audio>
+
     <div class="names">Anush 💕 Ishu</div>
     <h1>Forever & Always</h1>
     <p>We've been together for <span id="daysCount">0</span> beautiful days</p>
@@ -204,8 +206,10 @@
       document.getElementById("daysCount").textContent = diffDays;
 
       const popup = document.getElementById("popup");
+      const audio = document.getElementById("bg-music");
       document.getElementById("surpriseBtn").onclick = () => {
         popup.style.display = "flex";
+        audio.play();
       };
 
       function closePopup() {
