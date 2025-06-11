@@ -214,6 +214,8 @@
 
       function closePopup() {
         popup.style.display = "none";
+        audio.pause();
+        audio.currentTime = 0;
       }
     </script>
   </body>
