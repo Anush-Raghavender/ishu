@@ -9,6 +9,10 @@
       href="https://fonts.googleapis.com/css2?family=Parisienne&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><text y=%2214%22 font-size=%2214%22>❤️</text></svg>"
+    />
     <style>
       * {
         box-sizing: border-box;
@@ -205,10 +209,15 @@
     </div>
 
     <script>
-      const startDate = new Date("2025-03-17");
+      const startDate = new Date(2025, 2, 17);
       const today = new Date();
+
+      startDate.setHours(0, 0, 0, 0);
+      today.setHours(0, 0, 0, 0);
+
       const diffTime = today - startDate;
       const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+
       document.getElementById("daysCount").textContent = diffDays;
 
       const popup = document.getElementById("popup");
